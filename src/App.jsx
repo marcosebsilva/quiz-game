@@ -5,17 +5,25 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import Settings from './pages/Settings';
-import Questions from './pages/Questions';
+import Question from './pages/Question';
+import Contacts from './components/Contacts';
+import Footer from './components/Footer';
+import LinkToArticle from './components/LinkToArticle';
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}>
-        <Route path="settings" element={<Settings />} />
-        <Route path="questions" element={<Questions />} />
-      </Route>
-    </Routes>
+    <>
+      <Contacts />
+      <LinkToArticle />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/leaderboard" element={<Settings />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/questions/:id" element={<Question />} />
+      </Routes>
+      <Footer>Made by Marcos Silva</Footer>
+    </>
   )
 }
 

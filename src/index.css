@@ -1,3 +1,35 @@
 body {
-  background-color: aquamarine;
+  position: relative;
 }
+
+@font-face {
+  font-family: 'UniSans';
+  src: local('UniSans') url(./assets/fonts/UniSans/uni_sans_heavy.otf) format('opentype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'UniSans';
+  font-style: italic;
+  font-weight: 900;
+  src: url(./assets/fonts/UniSans/uni_sans_heavy_italic.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'UniSans';
+  font-weight: 250;
+  src: url(./assets/fonts/UniSans/uni_sans_thin.otf) format('opentype');
+}
+
+
+@font-face {
+  font-family: 'UniSans';
+  font-style: italic;
+  font-weight: 250;
+  src: url(./assets/fonts/UniSans/uni_sans_thin_italic.otf) format('opentype');
+}
+
+
+
+
+  
