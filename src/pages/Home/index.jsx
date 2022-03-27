@@ -1,10 +1,10 @@
-import { StyledWrapper } from './style.js';
 import FancyButton from '../../components/FancyButton';
+import MainWrapper from '../../components/MainWrapper';
 import PageTitle from '../../components/PageTitle/index.jsx';
 
 export default function Home() {
   return (
-    <StyledWrapper>
+    <MainWrapper>
       <PageTitle
         normalText="Quiz"
         highlightedText="Game"
@@ -23,6 +23,6 @@ export default function Home() {
         height="50px"
         navigationLink="leaderboard"
       />
-    </StyledWrapper>
+    </MainWrapper>
   );
 }
