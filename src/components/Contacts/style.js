@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const ToggleButton = styled.button`
+export const StyledButton = styled.button`
     width: 50px;
     height: 10px;
     position: absolute;
@@ -33,7 +33,7 @@ export const ToggleButton = styled.button`
     }
 `
 
-export const ContactWrapper = styled.div`
+export const StyledWrapper = styled.div`
     display: flex;
     visibility: ${props => props.show ? 'visible' : 'hidden'} ;
     opacity: ${props => props.show ? '1' : '0'};
@@ -62,7 +62,7 @@ export const ContactWrapper = styled.div`
     }
 `
 
-export const IconWrapper = styled.img`
+export const StyledIconWrapper = styled.img`
     width: 30px;
     display: block;
     margin-bottom: 1rem;

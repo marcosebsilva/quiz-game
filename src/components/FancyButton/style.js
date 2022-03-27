@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const StyledFancyButton = styled.button`
     max-width: ${ props => props.maxWidth || '400px' };
     width: ${ props => props.width || '80vw' };
     background-color: ${ props => props.backgroundColor || 'black' };
@@ -10,6 +10,7 @@ export const Button = styled.button`
     transition: 100ms;
     font-family: UniSans;
     // https://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text thanks to bookcasey
+    /* i probably should change this approach */
     // the very last shadow is the fancy one
     text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0px ${props => props.textShadowColor || "#FD28C1" };
     font-weight: 900;

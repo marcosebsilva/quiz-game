@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToggleButton, ContactWrapper, IconWrapper } from './style.js';
+import { StyledButton, StyledWrapper, StyledIconWrapper } from './style.js';
 import { email_icon, github_icon, linkedin_icon } from '../../assets/icons';
 
 export default function Contacts() {
@@ -11,16 +11,16 @@ export default function Contacts() {
 
   return (
     <div>
-      <ToggleButton
+      <StyledButton
         onClick={ toggleNav }
       />
-      <ContactWrapper
+      <StyledWrapper
         show={ showContacts }
       >
-        <a href='google.com' target='_blank'><IconWrapper src={email_icon}/></a>
-        <a href='google.com' target='_blank'><IconWrapper src={linkedin_icon}/></a>
-        <a href='google.com' target='_blank'><IconWrapper src={github_icon}/></a>
-      </ContactWrapper>    
+        <a href='google.com' target='_blank'><StyledIconWrapper src={email_icon}/></a>
+        <a href='google.com' target='_blank'><StyledIconWrapper src={linkedin_icon}/></a>
+        <a href='google.com' target='_blank'><StyledIconWrapper src={github_icon}/></a>
+      </StyledWrapper>    
     </div>
   )
 }
