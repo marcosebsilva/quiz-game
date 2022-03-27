@@ -4,7 +4,7 @@ import questionsReducer from './slices/questionsReducer';
 
 export const store = configureStore({
   reducer: {
-      settings: settingsReducer,
-      questions: questionsReducer,
+    settings: settingsReducer,
+    questions: questionsReducer,
   },
 })
