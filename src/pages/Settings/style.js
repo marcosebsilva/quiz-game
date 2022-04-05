@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const StyledSettingsWrapper = styled.div`
     width: 350px;
+    position: relative;
     margin-top: 5rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     & > * {
         margin-bottom: 1.2rem;
     }
-    flex-wrap: wrap;
-    justify-content: space-between;
     @media screen and (min-height: 660px) and (max-width: 500px){
         margin-top: 35vh;
         margin-bottom: 5vh;

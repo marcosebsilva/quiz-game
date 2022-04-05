@@ -4,12 +4,12 @@ export const questions = createSlice({
   name: 'questions',
   initialState: [],
   reducers: {
-      setQuestions: (state, payload) => {
-        state = [...payload];
-      },
+    addQuestions: (state, action) => {
+      state.push(...action.payload)
+    },
   },
 })
 
-export const { setQuestions } = questions.actions
+export const { addQuestions } = questions.actions
 
 export default questions.reducer

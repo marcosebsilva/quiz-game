@@ -1,24 +1,26 @@
 import React from 'react';
-import { StyledSelect } from './style.js';
-import { setDifficulty } from '../../../redux/slices/settingsReducer.js';
+import { StyledSelect, StyledLabel, StyledWrapper } from './style.js';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function CustomSelect() {
+export default function CustomSelect({ children, action, label, width }) {
   const dispatch = useDispatch();
-  const selectedDifficulty = useSelector(({ settings }) => settings.difficulty);
 
   const handleChange = ({target}) => {
-    dispatch(setDifficulty(target.value))
+    dispatch(action(target.value.toLowerCase()));
   }
 
   return (
-    <StyledSelect
-      value={ selectedDifficulty }
-      onChange={ handleChange }
+    <StyledWrapper
+      width={ width }
     >
-      <option value="easy">Easy</option>
-      <option value="medium">Medium</option>
-      <option value="hard">Hard</option>
-    </StyledSelect>
+      <StyledLabel>
+        { label }
+        <StyledSelect
+          onChange={ handleChange }
+        >
+          { children }
+        </StyledSelect>
+      </StyledLabel>
+    </StyledWrapper>
   )
 }
