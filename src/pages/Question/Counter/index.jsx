@@ -25,10 +25,18 @@ export default function Counter({ questionIndex }) {
     return () => clearInterval(intervalRef.current);
   }, [questionIndex]);
 
-  // clear interval if is locked or timer goes to 0
   useEffect(() => {
     if (isLocked || timer === 0) {
       clearInterval(intervalRef.current);
+    }
+
+    if (timer === 0) {
+      const answer = {
+        questionIndex,
+        chosenAnswer: 'skipped',
+      };
+      dispatch(setAnswer(answer));
+      setTimer(INITIAL_TIMER_IN_SECONDS);
     }
 
     if (isLocked) {
@@ -36,16 +44,6 @@ export default function Counter({ questionIndex }) {
         remainingSeconds: timer,
         questionIndex,
       }));
-      setTimer(INITIAL_TIMER_IN_SECONDS);
-    }
-
-    if (timer === 0) {
-      intervalRef.current = null;
-      const answer = {
-        questionIndex,
-        chosenAnswer: 'skipped',
-      };
-      dispatch(setAnswer(answer));
     }
   }, [isLocked, timer, dispatch, questionIndex]);
 
