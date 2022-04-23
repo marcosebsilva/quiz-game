@@ -15,4 +15,6 @@ export const StyledLink = styled.a`
           color: red;
       }
   }
-`
+`;
+
+export default StyledLink;

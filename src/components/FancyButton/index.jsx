@@ -1,30 +1,38 @@
-import React from 'react';
-import { StyledFancyButton } from './style.js';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
+import StyledFancyButton from './style';
 
 export default function FancyButton(props) {
   const navigate = useNavigate();
   const {
-    backgroundColor,
+    extraStyle,
+    textShadowColor,
+    clickCallback,
     navigationLink,
     title,
-    textShadowColor,
-    width,
-    maxWidth,
-    fontSize,
-    height
   } = props;
+
+  const handleClick = () => {
+    clickCallback();
+    navigate(navigationLink);
+  };
+
   return (
     <StyledFancyButton
-      backgroundColor={ backgroundColor }
-      textShadowColor={ textShadowColor }
-      width={ width }
-      maxWidth={ maxWidth }
-      height={ height }
-      fontSize={ fontSize }
-      onClick={() => navigate(navigationLink)}
+      extraStyle={extraStyle}
+      textShadowColor={textShadowColor}
+      onClick={handleClick}
     >
-      {title}
+      { title }
     </StyledFancyButton>
-  )
+  );
 }
+
+FancyButton.propTypes = {
+  extraStyle: PropTypes.objectOf(String),
+  textShadowColor: PropTypes.string,
+  clickCallback: PropTypes.func,
+  navigationLink: PropTypes.string,
+  title: PropTypes.string,
+}.isRequired;

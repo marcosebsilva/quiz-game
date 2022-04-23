@@ -1,26 +1,27 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import { StyledButton, StyledWrapper, StyledIconWrapper } from './style.js';
-import { email_icon, github_icon, linkedin_icon } from '../../assets/icons';
+import { StyledButton, StyledWrapper, StyledIconWrapper } from './style';
+import { emailIcon, githubIcon, linkedinIcon } from '../../assets/icons';
 
 export default function Contacts() {
   const [showContacts, setShowContacts] = useState(false);
-  
+
   const toggleNav = () => {
-    setShowContacts((prevState) => !prevState)
+    setShowContacts((prevState) => !prevState);
   };
 
   return (
     <div>
       <StyledButton
-        onClick={ toggleNav }
+        onClick={toggleNav}
       />
       <StyledWrapper
-        show={ showContacts }
+        show={showContacts}
       >
-        <a href='google.com' target='_blank'><StyledIconWrapper src={email_icon}/></a>
-        <a href='google.com' target='_blank'><StyledIconWrapper src={linkedin_icon}/></a>
-        <a href='google.com' target='_blank'><StyledIconWrapper src={github_icon}/></a>
-      </StyledWrapper>    
+        <a href="google.com" target="_blank"><StyledIconWrapper src={emailIcon} /></a>
+        <a href="google.com" target="_blank"><StyledIconWrapper src={linkedinIcon} /></a>
+        <a href="google.com" target="_blank"><StyledIconWrapper src={githubIcon} /></a>
+      </StyledWrapper>
     </div>
-  )
+  );
 }

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const StyledButton = styled.button`
     width: 50px;
     height: 10px;
@@ -31,12 +30,12 @@ export const StyledButton = styled.button`
     @media screen and (min-width: 500px){
         display: none;
     }
-`
+`;
 
 export const StyledWrapper = styled.div`
     display: flex;
-    visibility: ${props => props.show ? 'visible' : 'hidden'} ;
-    opacity: ${props => props.show ? '1' : '0'};
+    visibility: ${(props) => (props.show ? 'visible' : 'hidden')} ;
+    opacity: ${(props) => (props.show ? '1' : '0')};
     transition: 500ms;
     flex-direction: column;
     z-index: 1000;
@@ -60,7 +59,7 @@ export const StyledWrapper = styled.div`
             height: 100px;
         }
     }
-`
+`;
 
 export const StyledIconWrapper = styled.img`
     width: 30px;
@@ -75,5 +74,4 @@ export const StyledIconWrapper = styled.img`
         width: 40px;
         margin-bottom: 1.5rem;
     }
-`
-
+`;
