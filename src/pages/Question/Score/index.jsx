@@ -7,7 +7,7 @@ export default function Score() {
   return (
     <StyledWrapper>
       Current score:
-      { score }
+      {` ${score}` }
     </StyledWrapper>
   );
 }

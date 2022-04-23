@@ -6,6 +6,7 @@ import MainWrapper from '../../components/MainWrapper';
 import Score from './Score';
 import Option from './Option';
 import Counter from './Counter';
+import NextQuestion from './NextQuestion';
 
 export default function Question() {
   const { id } = useParams();
@@ -33,9 +34,9 @@ export default function Question() {
   return (
     <MainWrapper>
       <Score />
+      <h1>{category}</h1>
       <Counter questionIndex={QUESTION_INDEX} />
-      <h2>{category}</h2>
-      <h1>{question}</h1>
+      <h2>{question}</h2>
       {options.map((option, index) => (
         <Option
           // eslint-disable-next-line react/no-array-index-key
@@ -46,12 +47,13 @@ export default function Question() {
           isRight={option === correctAnswer}
         />
       ))}
-      <button
-        onClick={() => navigate(`/question/${parseInt(id, 10) + 1}`)}
+      <NextQuestion
+        handleClick={() => navigate(`/question/${parseInt(id, 10) + 1}`)}
+        isLocked={isLocked}
         type="button"
       >
-        Go to next
-      </button>
+        Next
+      </NextQuestion>
     </MainWrapper>
   );
 }

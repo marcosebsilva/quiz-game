@@ -5,13 +5,12 @@ import { setAnswer, setPoints } from '../../../redux/slices/questionsReducer';
 import { StyledInnerBar, StyledOuterBar } from './style';
 
 export default function Counter({ questionIndex }) {
-  const INITIAL_TIMER_IN_SECONDS = 5;
+  const INITIAL_TIMER_IN_SECONDS = 25;
   const dispatch = useDispatch();
   const isLocked = useSelector((state) => state.questions.list[questionIndex].isLocked);
   const [timer, setTimer] = useState(INITIAL_TIMER_IN_SECONDS);
   const intervalRef = useRef(null);
 
-  // resets interval
   useEffect(() => {
     clearInterval(intervalRef.current);
     setTimer(INITIAL_TIMER_IN_SECONDS);
@@ -21,7 +20,6 @@ export default function Counter({ questionIndex }) {
       setTimer((prev) => prev - 1);
     }, ONE_SECOND);
 
-    // cleanup
     return () => clearInterval(intervalRef.current);
   }, [questionIndex]);
 
@@ -36,7 +34,6 @@ export default function Counter({ questionIndex }) {
         chosenAnswer: 'skipped',
       };
       dispatch(setAnswer(answer));
-      setTimer(INITIAL_TIMER_IN_SECONDS);
     }
 
     if (isLocked) {
@@ -47,7 +44,6 @@ export default function Counter({ questionIndex }) {
     }
   }, [isLocked, timer, dispatch, questionIndex]);
 
-  // key is reseted to force React to mount a new dom node, so the animation can restart
   return (
     <StyledOuterBar key={questionIndex}>
       <StyledInnerBar
