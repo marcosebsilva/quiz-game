@@ -14,7 +14,9 @@ export default function FancyButton(props) {
   } = props;
 
   const handleClick = () => {
-    clickCallback();
+    if (clickCallback) {
+      clickCallback();
+    }
     navigate(navigationLink);
   };
 

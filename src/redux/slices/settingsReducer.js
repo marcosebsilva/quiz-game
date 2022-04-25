@@ -1,14 +1,16 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  nickname: '',
+  questionAmount: 5,
+  difficulty: 'medium',
+  theme: '',
+};
+
 export const settings = createSlice({
   name: 'settings',
-  initialState: {
-    nickname: '',
-    questionAmount: 5,
-    difficulty: 'medium',
-    theme: '',
-  },
+  initialState,
   reducers: {
     setNickname: (state, action) => {
       state.nickname = action.payload;
@@ -22,6 +24,7 @@ export const settings = createSlice({
     setTheme: (state, action) => {
       state.theme = parseInt(action.payload, 10);
     },
+    resetSettings: () => initialState,
   },
 });
 
@@ -29,6 +32,7 @@ export const {
   setNickname,
   setQuestionAmount,
   setDifficulty,
+  resetSettings,
   setTheme,
 } = settings.actions;
 

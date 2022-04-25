@@ -8,8 +8,8 @@ import PageTitle from '../../components/PageTitle';
 import CustomInput from './CustomInput';
 import CustomSelect from './CustomSelect';
 import { StyledSettingsWrapper } from './style';
-import { setDifficulty, setTheme } from '../../redux/slices/settingsReducer';
-import { addQuestions, clearQuestions } from '../../redux/slices/questionsReducer';
+import { resetSettings, setDifficulty, setTheme } from '../../redux/slices/settingsReducer';
+import { addQuestions, resetQuestions } from '../../redux/slices/questionsReducer';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import Loading from '../../components/Loading';
 import formatQuestions from '../../utils/formatQuestions';
@@ -27,11 +27,11 @@ export default function Settings() {
   };
 
   useEffect(() => {
-    dispatch(clearQuestions());
+    dispatch(resetQuestions());
+    dispatch(resetSettings());
     const now = new Date();
-    // 60000ms * 60 = 1 hour
-    // 1 hour * 6 = 6 hours
-    const SIX_HOURS = (60000 * 60) * 6;
+    // time in miliseconds
+    const SIX_HOURS = 21600000;
     if (!token || now.getTime() > token.expiration) {
       getSessionToken()
         .then((res) => setToken({
@@ -40,7 +40,8 @@ export default function Settings() {
         }));
     }
     // big thanks to soham https://www.sohamkamani.com/blog/javascript-localstorage-with-ttl-expiry/
-  }, [token, setToken, dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, dispatch]);
 
   return (
     <MainWrapper>

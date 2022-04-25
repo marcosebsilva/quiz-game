@@ -10,6 +10,7 @@ import Question from './pages/Question';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import LinkToArticle from './components/LinkToArticle';
+import MyScore from './pages/MyScore';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/leaderboard" element={<Settings />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/question/:id" element={<Question />} />
+        <Route path="/my-score" element={<MyScore />} />
       </Routes>
       <Footer>Made by Marcos Silva</Footer>
     </>

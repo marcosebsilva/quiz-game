@@ -2,6 +2,7 @@ import React from 'react';
 import FancyButton from '../../components/FancyButton';
 import MainWrapper from '../../components/MainWrapper';
 import PageTitle from '../../components/PageTitle';
+import colors from '../../utils/dict/colors.json';
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           'max-width': '300px',
           'font-size': '1.5rem',
           height: '50px',
-          'background-color': '#FD28C1',
+          'background-color': colors['default-pink'],
         }}
         title="Leaderboard"
         navigationLink="leaderboard"

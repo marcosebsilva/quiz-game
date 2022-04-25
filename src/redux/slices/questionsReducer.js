@@ -1,19 +1,17 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, current } from '@reduxjs/toolkit';
 
+const initialState = {
+  list: [],
+  total: 0,
+};
+
 export const questions = createSlice({
   name: 'questions',
-  initialState: {
-    list: [],
-    total: 0,
-  },
+  initialState,
   reducers: {
     addQuestions: (state, action) => {
       state.list.push(...action.payload);
-    },
-    clearQuestions: (state) => {
-      state.list = [];
-      state.total = 0;
     },
     setAnswer: (state, action) => {
       const newQuestionsList = current(state.list).map((item, index) => {
@@ -29,6 +27,12 @@ export const questions = createSlice({
       state.list = newQuestionsList;
     },
     setPoints: (state, action) => {
+      const difficulty = {
+        easy: 8,
+        medium: 10,
+        hard: 15,
+      };
+
       const newQuestionsList = current(state.list).map((item, index) => {
         if (index !== action.payload.questionIndex) return item;
 
@@ -38,7 +42,7 @@ export const questions = createSlice({
         const newItem = {
           ...item,
           points: chosenAnswer === correctAnswer
-            ? remainingSeconds * 15
+            ? remainingSeconds * difficulty[item.difficulty]
             : 0,
         };
 
@@ -51,13 +55,14 @@ export const questions = createSlice({
         return newTotal;
       }, 0);
     },
+    resetQuestions: () => initialState,
   },
 });
 
 export const {
   addQuestions,
   setAnswerAndPoints,
-  clearQuestions,
+  resetQuestions,
   setAnswer,
   setPoints,
 } = questions.actions;

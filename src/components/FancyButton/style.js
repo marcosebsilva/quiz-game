@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../utils/dict/colors.json';
 
 const parseExtraStyle = (styleObject) => {
   const styleString = Object.entries(styleObject).map((property) => property.join(': '));
@@ -18,7 +19,7 @@ const StyledFancyButton = styled.button`
   // https://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text thanks to bookcasey
   /* i probably should change this approach */
   // the very last shadow is the fancy one
-  text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0px ${(props) => props.textShadowColor || '#FD28C1'};
+  text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 2px 2px 0px ${(props) => props.textShadowColor || colors['default-pink']};
   font-weight: 900;
   font-size: ${(props) => props.fontSize || '3rem'};
   height: ${(props) => props.height || '78px'};
