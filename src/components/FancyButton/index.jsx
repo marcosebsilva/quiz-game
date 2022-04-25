@@ -10,9 +10,8 @@ export default function FancyButton(props) {
     textShadowColor,
     clickCallback,
     navigationLink,
-    title,
+    children,
   } = props;
-
   const handleClick = () => {
     if (clickCallback) {
       clickCallback();
@@ -22,11 +21,12 @@ export default function FancyButton(props) {
 
   return (
     <StyledFancyButton
+    // not sure if this extraStyle is the best approach
       extraStyle={extraStyle}
       textShadowColor={textShadowColor}
       onClick={handleClick}
     >
-      { title }
+      { children }
     </StyledFancyButton>
   );
 }

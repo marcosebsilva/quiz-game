@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   nickname: '',
   questionAmount: 5,
-  difficulty: 'medium',
+  difficulty: 'easy',
   theme: '',
 };
 

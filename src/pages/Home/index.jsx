@@ -11,10 +11,9 @@ export default function Home() {
         normalText="Quiz"
         highlightedText="Game"
       />
-      <FancyButton
-        title="Play"
-        navigationLink="settings"
-      />
+      <FancyButton navigationLink="settings">
+        Play
+      </FancyButton>
       <FancyButton
         extraStyle={{
           width: '60vw',
@@ -23,9 +22,10 @@ export default function Home() {
           height: '50px',
           'background-color': colors['default-pink'],
         }}
-        title="Leaderboard"
         navigationLink="leaderboard"
-      />
+      >
+        Leaderboard
+      </FancyButton>
     </MainWrapper>
   );
 }

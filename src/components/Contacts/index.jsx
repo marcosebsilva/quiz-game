@@ -1,6 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import { StyledButton, StyledWrapper, StyledIconWrapper } from './style';
+import {
+  StyledButton,
+  StyledWrapper,
+  StyledIconWrapper,
+  StyledOpacityController,
+} from './style';
 import { emailIcon, githubIcon, linkedinIcon } from '../../assets/icons';
 
 export default function Contacts() {
@@ -11,17 +16,19 @@ export default function Contacts() {
   };
 
   return (
-    <div>
+    <StyledOpacityController
+      showContacts={showContacts}
+    >
       <StyledButton
         onClick={toggleNav}
       />
       <StyledWrapper
         show={showContacts}
       >
-        <a href="google.com" target="_blank"><StyledIconWrapper src={emailIcon} /></a>
-        <a href="google.com" target="_blank"><StyledIconWrapper src={linkedinIcon} /></a>
-        <a href="google.com" target="_blank"><StyledIconWrapper src={githubIcon} /></a>
+        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={emailIcon} /></a>
+        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={linkedinIcon} /></a>
+        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={githubIcon} /></a>
       </StyledWrapper>
-    </div>
+    </StyledOpacityController>
   );
 }

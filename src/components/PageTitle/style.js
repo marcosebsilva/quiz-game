@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 250;
     position: absolute;
     top: 15vh;

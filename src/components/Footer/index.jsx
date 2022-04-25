@@ -1,11 +1,11 @@
 import React from 'react';
-import './style.scss';
+import StyledFooter from './style';
 
 export default function Footer() {
   return (
-    <footer>
+    <StyledFooter>
       Made by
       <i>Marcos Silva</i>
-    </footer>
+    </StyledFooter>
   );
 }

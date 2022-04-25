@@ -18,21 +18,23 @@ export default function MyScore() {
         on the leaderboard!
       </StyledDescription>
       <FancyButton
-        title="Leaderboard"
         extraStyle={{
           'font-size': '1.5rem',
           color: 'black',
           'background-color': 'white',
           border: '1px solid black',
         }}
-      />
+      >
+        Leaderboard
+      </FancyButton>
       <FancyButton
         extraStyle={{
           'font-size': '1.5rem',
         }}
-        title="Play again"
         navigationLink="/settings"
-      />
+      >
+        Play again
+      </FancyButton>
     </MainWrapper>
   );
 }

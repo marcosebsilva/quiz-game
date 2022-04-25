@@ -17,7 +17,7 @@ import formatQuestions from '../../utils/formatQuestions';
 export default function Settings() {
   const dispatch = useDispatch();
   const settings = useSelector((state) => state.settings);
-  const { data, isLoading } = useQuery('themes', getThemes);
+  const { data, isLoading, isError } = useQuery('themes', getThemes);
   const [token, setToken] = useLocalStorage('token', false);
 
   const handleClick = async () => {
@@ -43,58 +43,83 @@ export default function Settings() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, dispatch]);
 
+  if (isLoading) {
+    return (
+      <MainWrapper>
+        <PageTitle
+          normalText="Quiz"
+          highlightedText="Game"
+        />
+        <Loading />
+      </MainWrapper>
+    );
+  }
+
+  if (isError) {
+    return (
+      <MainWrapper>
+        <PageTitle
+          normalText="Quiz"
+          highlightedText="Game"
+        />
+        <h1>
+          Algo deu errado...
+        </h1>
+      </MainWrapper>
+    );
+  }
+
   return (
     <MainWrapper>
       <PageTitle
         normalText="Quiz"
         highlightedText="Game"
       />
-      {isLoading ? (<Loading />) : (
-        <StyledSettingsWrapper>
-          <CustomInput
-            label="Nickname"
-          />
-          <CustomInput
-            label="Question amount"
-            type="number"
-            width="48%"
-          />
-          <CustomSelect
-            label="Difficulty"
-            action={setDifficulty}
-            width="48%"
-          >
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-          </CustomSelect>
-          <CustomSelect
-            label="Theme"
-            action={setTheme}
-          >
-            <option>Any</option>
-            {data.map((theme) => (
-              <option
-                key={theme.id}
-                value={theme.id}
-              >
-                {theme.name}
-              </option>
-            ))}
-          </CustomSelect>
-          <FancyButton
-            extraStyle={{
-              width: '60vw',
-              'max-width': '250px',
-              'font-size': '1.5rem',
-              height: '70px',
-            }}
-            title="Start game"
-            clickCallback={handleClick}
-            navigationLink="/question/1"
-          />
-        </StyledSettingsWrapper>
-      )}
+      <StyledSettingsWrapper>
+        <CustomInput
+          label="Nickname"
+        />
+        <CustomInput
+          label="Question amount"
+          type="number"
+          width="48%"
+        />
+        <CustomSelect
+          label="Difficulty"
+          action={setDifficulty}
+          width="48%"
+        >
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+        </CustomSelect>
+        <CustomSelect
+          label="Theme"
+          action={setTheme}
+        >
+          <option>Any</option>
+          {data.map((theme) => (
+            <option
+              key={theme.id}
+              value={theme.id}
+            >
+              {theme.name}
+            </option>
+          ))}
+        </CustomSelect>
+        <FancyButton
+          extraStyle={{
+            width: '60vw',
+            'max-width': '250px',
+            'font-size': '1.5rem',
+            height: '70px',
+          }}
+          clickCallback={handleClick}
+          navigationLink="/question/1"
+        >
+          Start game
+        </FancyButton>
+      </StyledSettingsWrapper>
     </MainWrapper>
   );
 }
