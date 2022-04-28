@@ -28,6 +28,9 @@ const StyledFancyButton = styled.button`
       transform: translate(1px, 4px);
       box-shadow: none;
   }
+  &:disabled {
+    filter: opacity(50%);
+  }
 `;
 
 export default StyledFancyButton;

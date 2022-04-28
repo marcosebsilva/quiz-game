@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import FancyButton from '../../components/FancyButton';
 import MainWrapper from '../../components/MainWrapper';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { StyledScore, StyledTitle, StyledDescription } from './style';
+import { StyledScore, StyledTitle } from './style';
 
 export default function MyScore() {
-  const { nickname } = useSelector((state) => state.settings);
   const playerDetails = useSelector((state) => {
     if (state.questions.list.length) {
       return {
@@ -22,7 +21,7 @@ export default function MyScore() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // stops uses from coming directly to this page
+    // stops user from coming directly to this page
     if (!playerDetails) return navigate('/');
 
     if (!leaderboard) return setLeaderboard([playerDetails]);
@@ -57,11 +56,6 @@ export default function MyScore() {
     <MainWrapper>
       <StyledTitle>Total Score:</StyledTitle>
       <StyledScore>{playerDetails.score}</StyledScore>
-      <StyledDescription>
-        {`Well done ${nickname}! That puts you in`}
-        <i>{leaderboard ? leaderboard.indexOf(playerDetails) : '1'}</i>
-        on the leaderboard!
-      </StyledDescription>
       <FancyButton
         navigationLink="/leaderboard"
         extraStyle={{

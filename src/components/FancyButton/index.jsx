@@ -11,10 +11,11 @@ export default function FancyButton(props) {
     clickCallback,
     navigationLink,
     children,
+    disabled,
   } = props;
-  const handleClick = () => {
+  const handleClick = async () => {
     if (clickCallback) {
-      clickCallback();
+      await clickCallback();
     }
     navigate(navigationLink);
   };
@@ -25,6 +26,7 @@ export default function FancyButton(props) {
       extraStyle={extraStyle}
       textShadowColor={textShadowColor}
       onClick={handleClick}
+      disabled={disabled}
     >
       { children }
     </StyledFancyButton>
@@ -37,4 +39,5 @@ FancyButton.propTypes = {
   clickCallback: PropTypes.func,
   navigationLink: PropTypes.string,
   title: PropTypes.string,
+  disabled: PropTypes.bool,
 }.isRequired;

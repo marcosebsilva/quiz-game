@@ -11,14 +11,17 @@ function shuffle(a) {
 
 // thanks to insign from https://stackoverflow.com/questions/5796718/html-entity-decode
 function decodeText(question) {
-  const decodedQuestion = document.createElement('textarea');
-  decodedQuestion.innerHTML = question.question;
-  question.question = decodedQuestion.value;
+  const mockNode = document.createElement('textarea');
+
+  mockNode.innerHTML = question.question;
+  question.question = mockNode.value;
+
+  mockNode.innerHTML = question.correct_answer;
+  question.correct_answer = mockNode.value;
 
   question.scrambled_answers.forEach((answer, index) => {
-    const decodedAnswer = document.createElement('textarea');
-    decodedAnswer.innerHTML = answer;
-    question.scrambled_answers[index] = decodedAnswer.value;
+    mockNode.innerHTML = answer;
+    question.scrambled_answers[index] = mockNode.value;
   });
 }
 

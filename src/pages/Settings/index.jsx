@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSessionToken, getThemes, getQuestions } from '../../api/openTrivia/calls';
 import FancyButton from '../../components/FancyButton';
@@ -19,12 +19,21 @@ export default function Settings() {
   const settings = useSelector((state) => state.settings);
   const { data, isLoading, isError } = useQuery('themes', getThemes);
   const [token, setToken] = useLocalStorage('token', false);
+  const [malformedQuestionAmount, setMalformedAmount] = useState(false);
+  const [malformedNickname, setMalformedNickname] = useState(false);
 
   const handleClick = async () => {
     const questions = await getQuestions(settings, token.value);
     const formatedQuestions = formatQuestions(questions);
     dispatch(addQuestions(formatedQuestions));
   };
+  useEffect(() => {
+    const nicknameIsGood = settings.nickname.length >= 5;
+    const questionAmountIsGood = settings.questionAmount >= 5;
+
+    setMalformedAmount(questionAmountIsGood);
+    setMalformedNickname(nicknameIsGood);
+  }, [settings]);
 
   useEffect(() => {
     dispatch(resetQuestions());
@@ -108,6 +117,7 @@ export default function Settings() {
           ))}
         </CustomSelect>
         <FancyButton
+          disabled={!(malformedQuestionAmount && malformedNickname)}
           extraStyle={{
             width: '60vw',
             'max-width': '250px',
