@@ -17,22 +17,22 @@ export default function MyScore() {
 
     return null;
   });
-  const [leaderboard, setLeaderboard] = useLocalStorage('leaderboard', null);
+  const [ranking, setRanking] = useLocalStorage('ranking', null);
   const navigate = useNavigate();
 
   useEffect(() => {
     // stops user from coming directly to this page
     if (!playerDetails) return navigate('/');
 
-    if (!leaderboard) return setLeaderboard([playerDetails]);
+    if (!ranking) return setRanking([playerDetails]);
 
-    const alreadyInLeaderboard = leaderboard
+    const alreadyInRanking = ranking
       .find((item) => item.nickname === playerDetails.nickname);
 
-    if (!alreadyInLeaderboard) return setLeaderboard([...leaderboard, playerDetails]);
+    if (!alreadyInRanking) return setRanking([...ranking, playerDetails]);
 
-    if (playerDetails.score > alreadyInLeaderboard.score) {
-      const newLeaderboard = leaderboard.map((item) => {
+    if (playerDetails.score > alreadyInRanking.score) {
+      const newRanking = ranking.map((item) => {
         if (item.nickname === playerDetails.nickname) {
           return {
             nickname: item.nickname,
@@ -42,8 +42,8 @@ export default function MyScore() {
         return item;
       });
 
-      newLeaderboard.sort((a, b) => b.score - a.score);
-      setLeaderboard(newLeaderboard);
+      newRanking.sort((a, b) => b.score - a.score);
+      setRanking(newRanking);
     }
 
     return () => console.log('redirected...');
@@ -57,7 +57,7 @@ export default function MyScore() {
       <StyledTitle>Total Score:</StyledTitle>
       <StyledScore>{playerDetails.score}</StyledScore>
       <FancyButton
-        navigationLink="/leaderboard"
+        navigationLink="/ranking"
         extraStyle={{
           'font-size': '1.5rem',
           color: 'black',
@@ -65,7 +65,7 @@ export default function MyScore() {
           border: '1px solid black',
         }}
       >
-        Leaderboard
+        Ranking
       </FancyButton>
       <FancyButton
         extraStyle={{

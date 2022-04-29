@@ -22,9 +22,9 @@ export default function Home() {
           height: '50px',
           'background-color': colors['default-pink'],
         }}
-        navigationLink="leaderboard"
+        navigationLink="ranking"
       >
-        Leaderboard
+        Ranking
       </FancyButton>
     </MainWrapper>
   );

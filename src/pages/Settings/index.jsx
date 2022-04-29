@@ -27,6 +27,7 @@ export default function Settings() {
     const formatedQuestions = formatQuestions(questions);
     dispatch(addQuestions(formatedQuestions));
   };
+
   useEffect(() => {
     const nicknameIsGood = settings.nickname.length >= 5;
     const questionAmountIsGood = settings.questionAmount >= 5;

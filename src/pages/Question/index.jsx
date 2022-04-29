@@ -16,18 +16,7 @@ export default function Question() {
   const currentQuestion = questionList[QUESTION_INDEX];
 
   useEffect(() => {
-    const TWO_SECONDS = 2000;
-    const timeout = setTimeout(() => {
-      if (!questionList.length) {
-        navigate('/');
-      }
-    }, TWO_SECONDS);
-
-    return () => clearInterval(timeout);
-  }, [navigate, questionList.length]);
-
-  useEffect(() => {
-    if (id > questionList.length) {
+    if (id > 1 && id > questionList.length) {
       navigate('/my-score');
     }
   }, [id, navigate, questionList]);

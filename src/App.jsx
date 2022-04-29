@@ -11,7 +11,7 @@ import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import LinkToArticle from './components/LinkToArticle';
 import MyScore from './pages/MyScore';
-import Leaderboard from './pages/Leadboard';
+import Ranking from './pages/Ranking';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <LinkToArticle />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/ranking" element={<Ranking />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/question/:id" element={<Question />} />
         <Route path="/my-score" element={<MyScore />} />
