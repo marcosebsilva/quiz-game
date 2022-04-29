@@ -13,7 +13,9 @@ export default function Counter({ questionIndex }) {
 
   useEffect(() => {
     clearInterval(intervalRef.current);
-    setTimer(INITIAL_TIMER_IN_SECONDS);
+    if (timer !== INITIAL_TIMER_IN_SECONDS) {
+      setTimer(INITIAL_TIMER_IN_SECONDS);
+    }
 
     const ONE_SECOND = 1000;
     intervalRef.current = setInterval(() => {
@@ -24,11 +26,11 @@ export default function Counter({ questionIndex }) {
   }, [questionIndex]);
 
   useEffect(() => {
-    if (isLocked || timer === 0) {
+    if (isLocked || !timer) {
       clearInterval(intervalRef.current);
     }
 
-    if (timer === 0) {
+    if (!timer) {
       const answer = {
         questionIndex,
         chosenAnswer: 'skipped',

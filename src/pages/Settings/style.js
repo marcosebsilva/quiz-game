@@ -15,18 +15,18 @@ export const StyledSettingsWrapper = styled.div`
         margin-bottom: 5vh;
         /* thix fix a bug of settings div overlaping the title. */
     }
-`
+`;
 export const StyledThemesWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
     width: 100%;
-`
+`;
 
 export const StyledHintWrapper = styled.div`
     p {
         font-size: 0.9rem;
         font-weight: 250;
     }
-`
+`;

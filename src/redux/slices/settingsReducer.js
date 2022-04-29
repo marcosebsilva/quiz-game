@@ -16,7 +16,8 @@ export const settings = createSlice({
       state.nickname = action.payload;
     },
     setQuestionAmount: (state, action) => {
-      state.questionAmount = parseInt(action.payload, 10);
+      const newAmount = parseInt(action.payload, 10);
+      state.questionAmount = newAmount > 20 ? 20 : newAmount;
     },
     setDifficulty: (state, action) => {
       state.difficulty = action.payload;

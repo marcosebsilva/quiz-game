@@ -23,6 +23,7 @@ const StyledFancyButton = styled.button`
   font-weight: 900;
   font-size: ${(props) => props.fontSize || '3rem'};
   height: ${(props) => props.height || '78px'};
+  /* should find a better approach */
   ${(props) => props.extraStyle && parseExtraStyle(props.extraStyle)};
   &:active {
       transform: translate(1px, 4px);

@@ -25,9 +25,24 @@ export default function Contacts() {
       <StyledWrapper
         show={showContacts}
       >
-        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={emailIcon} /></a>
-        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={linkedinIcon} /></a>
-        <a href="//google.com" target="_blank" rel="noreferrer"><StyledIconWrapper src={githubIcon} /></a>
+        <a href="mailto: dusdoom.dev@gmail.com" target="_blank" rel="noreferrer">
+          <StyledIconWrapper
+            src={emailIcon}
+            alt="Email"
+          />
+        </a>
+        <a href="//https://www.linkedin.com/in/marcosestevaobs/" target="_blank" rel="noreferrer">
+          <StyledIconWrapper
+            src={linkedinIcon}
+            alt="Linkedin profile"
+          />
+        </a>
+        <a href="//https://github.com/marcosebsilva" target="_blank" rel="noreferrer">
+          <StyledIconWrapper
+            src={githubIcon}
+            alt="Github profile"
+          />
+        </a>
       </StyledWrapper>
     </StyledOpacityController>
   );

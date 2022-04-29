@@ -29,14 +29,6 @@ export default function Settings() {
   };
 
   useEffect(() => {
-    const nicknameIsGood = settings.nickname.length >= 5;
-    const questionAmountIsGood = settings.questionAmount >= 5;
-
-    setMalformedAmount(questionAmountIsGood);
-    setMalformedNickname(nicknameIsGood);
-  }, [settings]);
-
-  useEffect(() => {
     dispatch(resetQuestions());
     dispatch(resetSettings());
     const now = new Date();
@@ -51,7 +43,15 @@ export default function Settings() {
     }
     // big thanks to soham https://www.sohamkamani.com/blog/javascript-localstorage-with-ttl-expiry/
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token, dispatch]);
+  }, []);
+
+  useEffect(() => {
+    const nicknameIsGood = settings.nickname.length >= 5;
+    const questionAmountIsGood = settings.questionAmount >= 5;
+
+    setMalformedAmount(questionAmountIsGood);
+    setMalformedNickname(nicknameIsGood);
+  }, [settings]);
 
   if (isLoading) {
     return (

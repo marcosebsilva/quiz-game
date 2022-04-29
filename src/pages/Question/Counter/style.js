@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import device from '../../../utils/dict/screenSize.json';
 
 const innerAnimation = keyframes`
     0% {
@@ -24,13 +25,15 @@ export const StyledOuterBar = styled.div`
     border-radius: 25px;
     overflow: hidden;
     background-color: grey;
+    @media screen and (min-width: ${device.desktop}){
+      width: 70%;
+    }
 `;
 
 export const StyledInnerBar = styled.div`
     background-color: red;
     height: 100%;
     border-radius: 25px;
-    width: 0%;
     animation: ${innerAnimation} ${(props) => `${props.duration}s`} linear;
     animation-play-state: ${(props) => props.stopCounter && 'paused'};
 `;

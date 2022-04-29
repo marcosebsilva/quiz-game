@@ -7,6 +7,7 @@ import Score from './Score';
 import Option from './Option';
 import Counter from './Counter';
 import NextQuestion from './NextQuestion';
+import StyledOptionsWrapper from './style.js';
 
 export default function Question() {
   const { id } = useParams();
@@ -37,16 +38,18 @@ export default function Question() {
       <h1>{category}</h1>
       <Counter questionIndex={QUESTION_INDEX} />
       <h2>{question}</h2>
-      {options.map((option, index) => (
-        <Option
-          // eslint-disable-next-line react/no-array-index-key
-          key={`question-${index}`}
-          questionIndex={QUESTION_INDEX}
-          isLocked={isLocked}
-          option={option}
-          isRight={option === correctAnswer}
-        />
-      ))}
+      <StyledOptionsWrapper>
+        {options.map((option, index) => (
+          <Option
+            // eslint-disable-next-line react/no-array-index-key
+            key={`question-${index}`}
+            questionIndex={QUESTION_INDEX}
+            isLocked={isLocked}
+            option={option}
+            isRight={option === correctAnswer}
+          />
+        ))}
+      </StyledOptionsWrapper>
       <NextQuestion
         handleClick={() => navigate(`/question/${parseInt(id, 10) + 1}`)}
         isLocked={isLocked}

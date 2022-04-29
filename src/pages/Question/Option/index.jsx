@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setAnswer } from '../../../redux/slices/questionsReducer';
-import { Text } from './style';
+import { StyledButton } from './style';
 
 export default function Option({
   option, isRight, isLocked, questionIndex,
@@ -19,13 +19,13 @@ export default function Option({
   };
 
   return (
-    <Text
+    <StyledButton
       isLocked={isLocked}
       isRight={isRight}
       onClick={handleClick}
     >
       {option}
-    </Text>
+    </StyledButton>
   );
 }
 
