@@ -261,7 +261,7 @@ var Y=Object.defineProperty,Z=Object.defineProperties;var ee=Object.getOwnProper
         transition: 200ms;
         filter: ${e=>e.showContacts?"blur(2px)":""};
     }
-`;var it="/quiz-app/assets/github.a5bb223f.svg",st="/quiz-app/assets/linkedin.32c99aaa.svg",at="/quiz-app/assets/email.736fc456.svg";function ct(){const[e,t]=p.exports.useState(!1);return l(rt,{showContacts:e,children:[n(nt,{onClick:()=>{t(a=>!a)}}),l(ot,{show:e,children:[n("a",{href:"mailto: dusdoom.dev@gmail.com",target:"_blank",rel:"noreferrer",children:n($,{src:at,alt:"Email"})}),n("a",{href:"//https://www.linkedin.com/in/marcosestevaobs/",target:"_blank",rel:"noreferrer",children:n($,{src:st,alt:"Linkedin profile"})}),n("a",{href:"//https://github.com/marcosebsilva",target:"_blank",rel:"noreferrer",children:n($,{src:it,alt:"Github profile"})})]})]})}const lt=c.footer`
+`;var it="/quiz-game/assets/github.a5bb223f.svg",st="/quiz-game/assets/linkedin.32c99aaa.svg",at="/quiz-game/assets/email.736fc456.svg";function ct(){const[e,t]=p.exports.useState(!1);return l(rt,{showContacts:e,children:[n(nt,{onClick:()=>{t(a=>!a)}}),l(ot,{show:e,children:[n("a",{href:"mailto: dusdoom.dev@gmail.com",target:"_blank",rel:"noreferrer",children:n($,{src:at,alt:"Email"})}),n("a",{href:"//https://www.linkedin.com/in/marcosestevaobs/",target:"_blank",rel:"noreferrer",children:n($,{src:st,alt:"Linkedin profile"})}),n("a",{href:"//https://github.com/marcosebsilva",target:"_blank",rel:"noreferrer",children:n($,{src:it,alt:"Github profile"})})]})]})}const lt=c.footer`
     position: absolute;
     bottom: 0;
     width: 100%;
