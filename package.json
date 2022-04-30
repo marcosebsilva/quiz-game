@@ -8,21 +8,30 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "jest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
+    "camelcase": "^6.3.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-query": "^3.34.19",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "vite": "^2.8.0",
+    "@vitejs/plugin-react": "^1.0.7"
+
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^1.0.7",
+    "@swc/core": "^1.2.174",
+    "@swc/jest": "^0.2.20",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.25.3",
@@ -30,6 +39,8 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^3.2.3",
-    "vite": "^2.8.0"
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
+    "jest-watch-typeahead": "^1.1.0"
   }
 }

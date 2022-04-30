@@ -7,7 +7,7 @@ import Score from './Score';
 import Option from './Option';
 import Counter from './Counter';
 import NextQuestion from './NextQuestion';
-import StyledOptionsWrapper from './style.js';
+import StyledOptionsWrapper from './style';
 
 export default function Question() {
   const { id } = useParams();
