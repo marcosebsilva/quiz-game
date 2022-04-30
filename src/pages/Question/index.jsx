@@ -18,7 +18,7 @@ export default function Question() {
 
   useEffect(() => {
     if (id > 1 && id > questionList.length) {
-      navigate('/my-score');
+      navigate('/quiz-game/my-score');
     }
   }, [id, navigate, questionList]);
 
@@ -51,7 +51,7 @@ export default function Question() {
         ))}
       </StyledOptionsWrapper>
       <NextQuestion
-        handleClick={() => navigate(`/question/${parseInt(id, 10) + 1}`)}
+        handleClick={() => navigate(`/quiz-game/question/${parseInt(id, 10) + 1}`)}
         isLocked={isLocked}
         type="button"
       >

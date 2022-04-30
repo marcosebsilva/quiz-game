@@ -126,7 +126,7 @@ export default function Settings() {
             height: '70px',
           }}
           clickCallback={handleClick}
-          navigationLink="/question/1"
+          navigationLink="/quiz-game/question/1"
         >
           Start game
         </FancyButton>

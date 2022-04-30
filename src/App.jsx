@@ -19,11 +19,13 @@ function App() {
       <Contacts />
       <LinkToArticle />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/question/:id" element={<Question />} />
-        <Route path="/my-score" element={<MyScore />} />
+        <Route path="/quiz-game">
+          <Route index element={<Home />} />
+          <Route path="ranking" element={<Ranking />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="question/:id" element={<Question />} />
+          <Route path="my-score" element={<MyScore />} />
+        </Route>
       </Routes>
       <Footer>Made by Marcos Silva</Footer>
     </>

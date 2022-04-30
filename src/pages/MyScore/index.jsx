@@ -57,7 +57,7 @@ export default function MyScore() {
       <StyledTitle>Total Score:</StyledTitle>
       <StyledScore>{playerDetails.score}</StyledScore>
       <FancyButton
-        navigationLink="/ranking"
+        navigationLink="/quiz-game/ranking"
         extraStyle={{
           'font-size': '1.5rem',
           color: 'black',
@@ -71,7 +71,7 @@ export default function MyScore() {
         extraStyle={{
           'font-size': '1.5rem',
         }}
-        navigationLink="/settings"
+        navigationLink="/quiz-game/settings"
       >
         Play again
       </FancyButton>
