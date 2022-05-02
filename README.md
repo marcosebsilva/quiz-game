@@ -1,7 +1,7 @@
 
 # Quiz Game
 
-Front-end de umm mini-game de perguntas e respostas desenvolvido para praticar React e Redux-Toolkit. 
+Front-end de um mini-game de perguntas e respostas desenvolvido para praticar React e Redux-Toolkit. 
 
 
 
